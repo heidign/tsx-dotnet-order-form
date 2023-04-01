@@ -35,7 +35,16 @@ namespace tsx_react_project.Controllers
             }
             return stone;
         }
+        
+        // post stone object
+        [HttpPost]
+        public IActionResult PostStone(Stone stone)
+        {
+            _context.Add(stone);
+            _context.SaveChanges();
 
+            return CreatedAtAction(nameof(GetById), new { id = stone.id }, stone);
+        }
 
     }
 }
