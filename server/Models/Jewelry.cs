@@ -32,8 +32,10 @@ namespace tsx_react_project.Models
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public  JewelryMaterial material { get; set; }
 
+        [ForeignKey("stoneId")]
+        public int stoneId { get; set; }
         public Stone stone { get; set; }
-        
+
     }
 
     
