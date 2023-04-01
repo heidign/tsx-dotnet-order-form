@@ -7,7 +7,8 @@ namespace tsx_react_project.Models
 
     {
     public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) {}
-    public DbSet<Jewelry> Jewelries { get; set; }
+    public DbSet<Jewelry> JewelryPieces { get; set; }
+    public DbSet<Stone> Cabs { get; set; }
     }
     
 }
