@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "NCBYJvh+gTeZrqhLTEvOPz2D2uYRquB9FZGi6O++scZ0LJF9di1w9a94GAqjpm+dDw3KDS4edib3k85/1GiN0Q==",
+  "success": true,
+  "projectFilePath": "/Users/livlimitlessly/Prime/tier3/tsx-react-project/tsx-react-project.csproj",
+  "expectedPackageFiles": [
+    "/Users/livlimitlessly/.nuget/packages/microsoft.aspnetcore.openapi/7.0.4/microsoft.aspnetcore.openapi.7.0.4.nupkg.sha512",
+    "/Users/livlimitlessly/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/Users/livlimitlessly/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/Users/livlimitlessly/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "/Users/livlimitlessly/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "/Users/livlimitlessly/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "/Users/livlimitlessly/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
