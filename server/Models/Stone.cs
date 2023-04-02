@@ -39,7 +39,7 @@ namespace tsx_react_project.Models
         public StoneCabShape shape { get; set; }        
         
         [ForeignKey("jewelryId")]
-        public int jewelryId { get; set; }
+        public int? jewelryId { get; set; }
         public Jewelry jewelry { get; set; }
 
     }

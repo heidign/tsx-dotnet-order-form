@@ -20,7 +20,7 @@ namespace tsx_react_project.Controllers
         [HttpGet]
         public IEnumerable<Stone> GetStone()
         {
-            return _context.Cabs;
+            return _context.Cabs.Include(stone => stone.jewelryId);
         }
 
         // GET stone by id 
@@ -35,16 +35,20 @@ namespace tsx_react_project.Controllers
             }
             return stone;
         }
-        
+
         // post stone object
         [HttpPost]
         public IActionResult PostStone(Stone stone)
         {
+            // telling the db context to find the jewelry id of the posted stone
+            // attaching the jewelry id to the stone
+            stone.jewelry = _context.JewelryPieces.Find(stone.jewelryId);
+            // adding the stone to the db context
             _context.Add(stone);
+            // saving changes to the db
             _context.SaveChanges();
-
+            // creating new id for the stone
             return CreatedAtAction(nameof(GetById), new { id = stone.id }, stone);
         }
-
     }
 }

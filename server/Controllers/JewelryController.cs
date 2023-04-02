@@ -25,13 +25,13 @@ namespace tsx_react_project.Controllers
 
         // GET jewelry by id 
         [HttpGet("{id}")]
-        public ActionResult<Jewelry> GetById(int id)
+        public Jewelry GetById(int id)
         {
             Jewelry jewelry = _context.JewelryPieces.SingleOrDefault(j => j.id == id);
 
             if (jewelry is null)
             {
-                return NotFound();
+                return null;
             }
             return jewelry;
         }
@@ -42,7 +42,6 @@ namespace tsx_react_project.Controllers
         {
             _context.Add(jewelry);
             _context.SaveChanges();
-
             return CreatedAtAction(nameof(GetById), new { id = jewelry.id }, jewelry);
         }
     }
