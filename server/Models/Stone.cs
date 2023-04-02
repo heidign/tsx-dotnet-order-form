@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System;
 
-namespace tsx_react_project
+namespace tsx_react_project.Models
 {
 
     public enum StoneType
@@ -36,7 +36,11 @@ namespace tsx_react_project
         public StoneType type { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
-        public StoneCabShape shape { get; set; }
+        public StoneCabShape shape { get; set; }        
+        
+        [ForeignKey("jewelryId")]
+        public int jewelryId { get; set; }
+        public Jewelry jewelry { get; set; }
 
     }
 

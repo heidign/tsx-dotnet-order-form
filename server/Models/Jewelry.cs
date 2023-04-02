@@ -3,6 +3,7 @@ using System;
 using System.Text.Json.Serialization;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 namespace tsx_react_project.Models
 {
 
@@ -31,12 +32,5 @@ namespace tsx_react_project.Models
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public  JewelryMaterial material { get; set; }
-
-        [ForeignKey("stoneId")]
-        public int stoneId { get; set; }
-        public Stone stone { get; set; }
-
     }
-
-    
 }
