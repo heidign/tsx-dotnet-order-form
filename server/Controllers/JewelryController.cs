@@ -36,6 +36,14 @@ namespace tsx_react_project.Controllers
             return jewelry;
         }
 
+        // post jewelry object
+        [HttpPost]
+        public IActionResult PostJewelry(Jewelry jewelry)
+        {
+            _context.Add(jewelry);
+            _context.SaveChanges();
 
+            return CreatedAtAction(nameof(GetById), new { id = jewelry.id }, jewelry);
+        }
     }
 }
