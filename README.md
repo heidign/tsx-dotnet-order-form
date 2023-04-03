@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+![REPO SIZE](https://img.shields.io/github/repo-size/heidign/tsx-dotnet-order-form.svg)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/heidign/tsx-dotnet-order-form.svg)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# Order Form
+## Description
+_Duration: One Weekend_
 
-In the project directory, you can run:
+This is a simple SPA order form built with C#/.Net, Typescript & React for practice. Feel free to give it a spin if you'd like! 
 
-### `npm start`
+## **Table of Contents:**
+1. [Prerequisites](#prerequisites)
+1. [Installation & Setup](#installation--setup)
+1. [Usage](#usage)
+1. [Built With](#built-with)
+1. [Acknowledgement](#acknowledgement)
+1. [Connect With Me](#connect-with-me)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
+## Prerequisites
+1. To install the dependencies, be sure to have at lease version 18 of node installed
+* node
+  ```sh
+  npm install node@v18.13.0
+  ````
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation & Setup
+1. Fork and clone the repo
+   ```sh
+   git clone https://github.com/heidign/tsx-dotnet-order-form.git
+   ```
+1. Install NPM packages
+   ```sh
+   npm install
+   ```
+1. Open Postico and create a database (database name: `jewelry_order`)
+1. Migrate database with `dotnet ef migrations` and `dotnet ef database update`
+1. `dotnet run` in your terminal
+1. `npm start` in a second terminal
+1. Navigate to localhost:3000/api/order 
 
-### `npm test`
+## Built With
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* [TypeScript](https://www.typescriptlang.org/)
+* HTML
+* CSS
+* [React](https://reactjs.org/)
+* [React Router v5](https://v5.reactrouter.com/web/guides/quick-start)
+* [Node js](https://nodejs.org/en/about/)
+* [Axios](https://axios-http.com/)
+* [C#](https://learn.microsoft.com/en-us/dotnet/csharp/)
+* [.Net](https://dotnet.microsoft.com/en-us/)
+* [Postico 2](https://eggerapps.at/postico2/)
+* [Postman](https://www.postman.com/)
+* [Material UI](https://mui.com/)
 
-### `npm run build`
+## Acknowledgement
+Thanks to [Prime Digital Academy](www.primeacademy.io) and my instructors Dane, Key, and Edan who equipped and helped me to make this application a reality.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Support
+If you have suggestions or issues, please message me on [GitHub](https://github.com/heidign).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Get in Touch
+If you would like to chat about tech or potential opportunities please send me an email or connection request on LinkedIn.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+heidiganac@gmail.com
+<a href="mailto: heidiganac@gmail.com">
+<img align="left" alt="Gmail" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" style="padding-right:10px;" /></a>
 
-### `npm run eject`
+<a href="https://linkedin.com/in/heidign">
+<img align="left" alt="LinkedIn" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" style="padding-right:10px;"/>/heidign </a> 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
+<img align="left" alt="TypeScript" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" style="padding-right:10px;" />
+          
+<img align="left" alt="React" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" style="padding-right:10px;" />
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img align="left" alt="Node" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" style="padding-right:10px;"/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<img align="left" alt="cSharp" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" style="padding-right:10px;" />
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<img align="left" alt="DotNetCore" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" style="padding-right:10px;" />
 
-## Learn More
+<a href="https://postman.com">
+<img align="left" alt="postman" width="26px" src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" style="padding-right:10px;" />
+</a> 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img align="left" alt="MUI" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg" style="padding-right:10px;" />
+          
+<img align="left" alt="HTML5" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" style="padding-right:10px;" />
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img align="left" alt="CSS3" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" style="padding-right:10px;" />
 
-### Code Splitting
+<img align="left" alt="Visual Studio Code" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" style="padding-right:10px;" />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img align="left" alt="Git" width="26px" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" style="padding-right:10px;" />
 
-### Analyzing the Bundle Size
+<img align="left" alt="GitHub" width="26px" src="https://user-images.githubusercontent.com/3369400/139447912-e0f43f33-6d9f-45f8-be46-2df5bbc91289.png" style="padding-right:10px;" />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
