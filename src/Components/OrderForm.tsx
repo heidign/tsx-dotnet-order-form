@@ -29,25 +29,41 @@ function OrderForm() {
   const [stone, setStone] = useState<Stone>(new Stone("", "", undefined));
   const [jewelry, setJewelry] = useState<Jewelry>(new Jewelry("", ""));
 
-  // onChange
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    // setValues({ ...values, [e.target.name]: e.target.value });
+  // onChange of jewelry select
+  const handleJewelryChange = (
+    e: React.ChangeEvent<HTMLSelectElement>,
+    key: string
+  ) => {
+    const selectKey = key as keyof typeof jewelry;
+    setJewelry({ ...jewelry, [selectKey]: e.target.value });
+  };
+
+  // onChange of stone select
+  const handleStoneChange = (
+    e: React.ChangeEvent<HTMLSelectElement>,
+    key: string
+  ) => {
+    const selectKey = key as keyof typeof stone;
+    setStone({ ...stone, [selectKey]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log("clicked", handleSubmit);
   };
 
   return (
     <>
       <form>
-        {/* <label htmlFor=""></label> */}
         {/* jewelry piece */}
         <select
           className={"form-control col-md-2 mr-2"}
           value={jewelry.piece}
           onChange={(e) => {
-            jewelry.piece = e.target.value;
-            setJewelry(jewelry);
+            handleJewelryChange(e, "piece");
           }}
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Jewelry Piece
           </option>
           <option value="Ring">Ring</option>
@@ -58,9 +74,11 @@ function OrderForm() {
         <select
           className={"form-control col-md-2 mr-2"}
           value={jewelry.material}
-          onChange={(e) => (jewelry.material = e.target.value)}
+          onChange={(e) => {
+            handleJewelryChange(e, "material");
+          }}
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Material
           </option>
           <option value="SterlingSilver">Sterling Silver</option>
@@ -72,9 +90,11 @@ function OrderForm() {
         <select
           className={"form-control col-md-2 mr-2"}
           value={stone.type}
-          onChange={(e) => (stone.shape = e.target.value)}
+          onChange={(e) => {
+            handleStoneChange(e, "type");
+          }}
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Stone Type
           </option>
           <option value="Amethyst">Amethyst</option>
@@ -88,9 +108,11 @@ function OrderForm() {
         <select
           className={"form-control col-md-2 mr-2"}
           value={stone.shape}
-          onChange={(e) => (stone.shape = e.target.value)}
+          onChange={(e) => {
+            handleStoneChange(e, "shape");
+          }}
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Stone Shape
           </option>
           <option value="Oval">Oval</option>
@@ -100,8 +122,12 @@ function OrderForm() {
           <option value="Trapezoid">Trapezoid</option>
           <option value="SurpriseMe">Surprise Me</option>
         </select>
-
-        <button>Submit</button>
+        {/* submit button */}
+        <div>
+          <button type="submit" value="Order" onClick={handleSubmit}>
+            Place Order
+          </button>
+        </div>
       </form>
     </>
   );
