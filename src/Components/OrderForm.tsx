@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import axios from 'axios';
 
 class Stone {
   type: string;
@@ -28,7 +29,7 @@ class Jewelry {
 function OrderForm() {
   const [stone, setStone] = useState<Stone>(new Stone("", "", undefined));
   const [jewelry, setJewelry] = useState<Jewelry>(new Jewelry("", ""));
-
+    
   // onChange of jewelry select
   const handleJewelryChange = (
     e: React.ChangeEvent<HTMLSelectElement>,
@@ -49,7 +50,9 @@ function OrderForm() {
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log("clicked", handleSubmit);
+      console.log("clicked", handleSubmit);
+      axios.post("/api/jewelry", jewelry)
+      .then(Response)
   };
 
   return (
