@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 class Stone {
   type: string;
@@ -29,7 +29,15 @@ class Jewelry {
 function OrderForm() {
   const [stone, setStone] = useState<Stone>(new Stone("", "", undefined));
   const [jewelry, setJewelry] = useState<Jewelry>(new Jewelry("", ""));
-    
+  const [jewelryList, setJewelryList] = useState([]);
+  const [stoneList, setStoneList] = useState([]);
+
+
+  useEffect(() => {
+    getJewelry();
+    getStones();
+  }, []);
+
   // onChange of jewelry select
   const handleJewelryChange = (
     e: React.ChangeEvent<HTMLSelectElement>,
@@ -50,11 +58,24 @@ function OrderForm() {
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-      console.log("clicked", handleSubmit);
-      axios.post("/api/jewelry", jewelry)
-      .then(Response)
+    console.log("clicked", handleSubmit);
+    axios.post("/api/jewelry", jewelry).then(() => {
+      getJewelry();
+      getStones();
+    });
   };
 
+  const getJewelry = () => {
+    axios.get("/api/jewelry").then((response) => {
+      setJewelryList(response.data);
+    });
+  };
+
+  const getStones = () => {
+    axios.get("/api/stone").then((response) => {
+      setStoneList(response.data);
+    });
+  };
   return (
     <>
       <form>
@@ -132,6 +153,8 @@ function OrderForm() {
           </button>
         </div>
       </form>
+      <pre>{JSON.stringify(jewelryList, null, 2)}</pre>
+      <pre>{JSON.stringify(stoneList, null, 2)}</pre>
     </>
   );
 }
