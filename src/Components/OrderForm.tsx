@@ -61,8 +61,11 @@ function OrderForm() {
     console.log("clicked", handleSubmit);
     axios.post("/api/jewelry", jewelry).then(() => {
       getJewelry();
-      getStones();
+      axios.post("/api/stone", stone).then(() => {
+        getStones();
+      });
     });
+
   };
 
   const getJewelry = () => {
