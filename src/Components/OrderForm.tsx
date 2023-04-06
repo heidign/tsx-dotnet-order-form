@@ -32,7 +32,6 @@ function OrderForm() {
   const [jewelryList, setJewelryList] = useState([]);
   const [stoneList, setStoneList] = useState([]);
 
-
   useEffect(() => {
     getJewelry();
     getStones();
@@ -59,9 +58,13 @@ function OrderForm() {
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log("clicked", handleSubmit);
-    axios.post("/api/jewelry", jewelry).then(() => {
-      getJewelry();
-      getStones();
+    axios.post("/api/jewelry", jewelry).then((response) => {
+      // attaching jewelry id to stone object
+      stone.jewelryId = response.data.id;
+      axios.post("/api/stone", stone).then(() => {
+        getJewelry();
+        getStones();
+      });
     });
   };
 
