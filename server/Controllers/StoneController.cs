@@ -21,14 +21,15 @@ namespace tsx_react_project.Controllers
         public IEnumerable<Stone> GetStone()
         {
             // return _context.Cabs;
-            return _context.Cabs.Include(stone => stone.jewelryId);
+            return _context.Cabs.Include(stone => stone.jewelry);
         }
 
         // GET stone by id 
         [HttpGet("{id}")]
         public ActionResult<Stone> GetById(int id)
         {
-            Stone stone = _context.Cabs.Find(id);
+            // Stone stone = _context.Cabs.Find(id);
+            Stone stone = _context.Cabs.SingleOrDefault(s => s.id == id);
 
             if (stone is null)
             {

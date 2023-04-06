@@ -27,7 +27,8 @@ namespace tsx_react_project.Controllers
         [HttpGet("{id}")]
         public Jewelry GetById(int id)
         {
-            Jewelry jewelry = _context.JewelryPieces.Find(id);
+            Jewelry jewelry = _context.JewelryPieces.SingleOrDefault(j => j.id == id);
+            // Jewelry jewelry = _context.JewelryPieces.Find(id);
 
             if (jewelry is null)
             {
