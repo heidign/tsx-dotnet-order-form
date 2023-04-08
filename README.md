@@ -38,7 +38,7 @@ This is a simple SPA order form built with C#/.Net, Typescript & React for pract
 1. Migrate database with `dotnet ef migrations` and `dotnet ef database update`
 1. `dotnet run` in your terminal
 1. `npm start` in a second terminal
-1. Navigate to localhost:3000/api/order 
+1. Navigate to localhost:3000/api/jewelry 
 
 ## Built With
 
