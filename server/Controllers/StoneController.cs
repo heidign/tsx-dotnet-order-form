@@ -21,7 +21,7 @@ namespace tsx_react_project.Controllers
         public IEnumerable<Stone> GetStone()
         {
             // return _context.Cabs;
-            return _context.Cabs.Include(stone => stone.jewelry);
+            return _context.Cabs;
         }
 
         // GET stone by id 
@@ -29,7 +29,7 @@ namespace tsx_react_project.Controllers
         public ActionResult<Stone> GetById(int id)
         {
             // Stone stone = _context.Cabs.Find(id);
-            Stone stone = _context.Cabs.SingleOrDefault(s => s.id == id);
+            Stone stone = _context.Cabs.SingleOrDefault(s => s.Id == id);
 
             if (stone is null)
             {
@@ -44,13 +44,14 @@ namespace tsx_react_project.Controllers
         {
             // telling the db context to find the jewelry id of the posted stone
             // attaching the jewelry id to the stone
-            stone.jewelry = _context.JewelryPieces.Find(stone.jewelryId);
+            // stone.jewelry = _context.JewelryPieces.Find(stone.jewelry.id);
             // adding the stone to the db context
+            Console.WriteLine(stone.JewelryId);
             _context.Add(stone);
             // saving changes to the db
             _context.SaveChanges();
             // creating new id for the stone
-            return CreatedAtAction(nameof(GetById), new { id = stone.id }, stone);
+            return CreatedAtAction(nameof(GetById), new { id = stone.Id }, stone);
         }
     }
 }

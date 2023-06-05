@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using tsx_react_project.Models;
 using Microsoft.EntityFrameworkCore;
+
+
+using tsx_react_project.Models;
 
 namespace tsx_react_project.Controllers
 {
@@ -20,21 +23,18 @@ namespace tsx_react_project.Controllers
         [HttpGet]
         public IEnumerable<Jewelry> GetJewelry()
         {
-            return _context.JewelryPieces;
+            return _context.JewelryPieces.Include(prop => prop.stones);
         }
 
         // GET jewelry by id 
         [HttpGet("{id}")]
-        public Jewelry GetById(int id)
+        public async Task<Jewelry> GetById(int id)
         {
-            Jewelry jewelry = _context.JewelryPieces.SingleOrDefault(j => j.id == id);
-            // Jewelry jewelry = _context.JewelryPieces.Find(id);
-
-            if (jewelry is null)
-            {
-                return null;
-            }
-            return jewelry;
+           List <Jewelry> jewelry = await _context.JewelryPieces
+                .Include(prop => prop.stones)
+                .ToListAsync();
+            
+            return jewelry.Find(piece => piece.id == id);
         }
 
         // post jewelry object

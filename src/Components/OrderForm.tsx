@@ -61,6 +61,7 @@ function OrderForm() {
     axios.post("/api/jewelry", jewelry).then((response) => {
       // attaching jewelry id to stone object
       stone.jewelryId = response.data.id;
+      console.log(stone);
       axios.post("/api/stone", stone).then(() => {
         getJewelry();
         getStones();
