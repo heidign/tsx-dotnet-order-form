@@ -30,18 +30,16 @@ namespace tsx_react_project.Models
 
     public class Stone
     {
-        public int id { get; set; }
+        [Key]
+        public int Id { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public StoneType type { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
-        public StoneCabShape shape { get; set; }        
+        public StoneCabShape shape { get; set; }
         
-        [ForeignKey("jewelryId")]
-        public int? jewelryId { get; set; }
-        public Jewelry jewelry { get; set; }
-
+        [ForeignKey("JewelryId")]
+        public int? JewelryId { get; set; }
     }
-
 }

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using tsx_react_project.Models;
@@ -9,9 +10,10 @@ using tsx_react_project.Models;
 namespace tsx_react_project.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20230605215529_addedRelationalIDFromStoneToJewelry")]
+    partial class addedRelationalIDFromStoneToJewelry
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,6 +28,9 @@ namespace tsx_react_project.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
+                    b.Property<int?>("StoneId")
+                        .HasColumnType("integer");
+
                     b.Property<int>("material")
                         .HasColumnType("integer");
 
@@ -34,17 +39,20 @@ namespace tsx_react_project.Migrations
 
                     b.HasKey("id");
 
+                    b.HasIndex("StoneId")
+                        .IsUnique();
+
                     b.ToTable("JewelryPieces");
                 });
 
             modelBuilder.Entity("tsx_react_project.Models.Stone", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<int?>("JewelryId")
+                    b.Property<int?>("jewelryId")
                         .HasColumnType("integer");
 
                     b.Property<int>("shape")
@@ -53,23 +61,23 @@ namespace tsx_react_project.Migrations
                     b.Property<int>("type")
                         .HasColumnType("integer");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("JewelryId");
+                    b.HasKey("id");
 
                     b.ToTable("Cabs");
                 });
 
-            modelBuilder.Entity("tsx_react_project.Models.Stone", b =>
-                {
-                    b.HasOne("tsx_react_project.Models.Jewelry", null)
-                        .WithMany("stones")
-                        .HasForeignKey("JewelryId");
-                });
-
             modelBuilder.Entity("tsx_react_project.Models.Jewelry", b =>
                 {
-                    b.Navigation("stones");
+                    b.HasOne("tsx_react_project.Models.Stone", "stone")
+                        .WithOne("jewelry")
+                        .HasForeignKey("tsx_react_project.Models.Jewelry", "StoneId");
+
+                    b.Navigation("stone");
+                });
+
+            modelBuilder.Entity("tsx_react_project.Models.Stone", b =>
+                {
+                    b.Navigation("jewelry");
                 });
 #pragma warning restore 612, 618
         }
