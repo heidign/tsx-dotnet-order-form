@@ -42,7 +42,7 @@ namespace tsx_react_project.Controllers
         public IActionResult PostJewelry(Jewelry jewelry)
         {
             _context.Add(jewelry);
-            _context.SaveChanges();
+            _context.SaveChanges(); 
             return CreatedAtAction(nameof(GetById), new { id = jewelry.id }, jewelry);
         }
     }
